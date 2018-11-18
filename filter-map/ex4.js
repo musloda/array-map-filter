@@ -64,9 +64,12 @@ En prenant les deux exemples d'arguments d'entrée, on obtiendrait ceci en sorti
 */
 
 function getActivitiesMembers(activities, persons) {
-}
-
-
+  sortie = activities.map(a => {
+    sortie1 = persons.filter(per => per.activities.includes(a));
+    return {activity: a, persons: sortie1.map(p => p.name)}
+  });
+  return sortie;
+} 
 
 // Ne pas modifier l'export
 module.exports = getActivitiesMembers;

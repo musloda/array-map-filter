@@ -50,7 +50,16 @@ Sortie attendue:
 
 */
 
-function getStudentsPerCurriculum(campuses, curriculumName) {
-}
 
+function getStudentsPerCurriculum(campuses, curriculumName) {
+  sortie = campuses.filter(camp => {
+    sortie1 = camp.curriculums.filter(cursus => cursus.name === curriculumName);
+    camp.curriculums = sortie1;
+    return sortie1.length > 0;
+    })
+return sortie.map(campus => {
+  let numSt = campus.curriculums[0].numStudents;
+  return {[campus.city] : numSt };
+  });
+}
 module.exports = getStudentsPerCurriculum;

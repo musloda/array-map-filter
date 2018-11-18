@@ -39,6 +39,13 @@ Exemple d'entrée:
  */
 
 function searchWordFilter(items, search) {
+  let str = search.charAt(0).toUpperCase() + search.slice(1);
+  sortie = items.filter(function(n) {
+    if(n.includes(search) || n.includes(str)) {
+      return n;
+    }
+  });
+  return sortie;
 }
 
 // Ne pas modifier l'export
